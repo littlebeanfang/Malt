@@ -1,0 +1,84 @@
+CONFIGURATION
+Configuration name:   test
+Configuration type:   singlemalt
+Created:              Sat Jan 31 20:38:39 CST 2015
+
+SYSTEM
+Operating system architecture: amd64
+Operating system name:         Windows Server 2008 R2
+JRE vendor name:               Oracle Corporation
+JRE version number:            1.7.0_45
+
+MALTPARSER
+Version:                       @version@
+Build date:                    @builddate@
+
+SETTINGS
+2planar
+  reduceonswitch (-2pr)                 false
+config
+  workingdir (  -w)                     user.dir
+  name (  -c)                           test
+  logging ( -cl)                        info
+  flowchart (  -m)                      learn
+  type (  -t)                           singlemalt
+  logfile (-lfi)                        stdout
+  url (  -u)                            
+covington
+  allow_root ( -cr)                     true
+  allow_shift ( -cs)                    false
+graph
+  max_sentence_length (-gsl)            256
+  head_rules (-ghr)                     
+  root_label (-grl)                     ROOT
+guide
+  decision_settings (-gds)              T.TRANS+A.DEPREL
+  kbest_type ( -kt)                     rank
+  data_split_structure (  -s)           
+  learner (  -l)                        liblinear
+  kbest (  -k)                          -1
+  features (  -F)                       eng-liblinear.xml
+  classitem_separator (-gcs)            ~
+  data_split_column (  -d)              
+  data_split_threshold (  -T)           50
+input
+  infile (  -i)                         1sen.txt
+  reader ( -ir)                         tab
+  iterations ( -it)                     1
+  charset ( -ic)                        UTF-8
+  reader_options (-iro)                 
+  format ( -if)                         /appdata/dataformat/conllx.xml
+lib
+  save_instance_files ( -li)            false
+  external ( -lx)                       
+  verbosity ( -lv)                      silent
+  options ( -lo)                        
+multiplanar
+  planar_root_handling (-prh)           normal
+nivre
+  allow_root ( -nr)                     true
+  enforce_tree ( -nt)                   false
+  allow_reduce ( -ne)                   false
+output
+  charset ( -oc)                        UTF-8
+  writer_options (-owo)                 
+  format ( -of)                         
+  writer ( -ow)                         tab
+  outfile (  -o)                        
+planar
+  no_covered_roots (-pcov)               false
+  connectedness (-pcon)                  none
+  acyclicity (-pacy)                     true
+pproj
+  covered_root (-pcr)                   none
+  marking_strategy ( -pp)               none
+  lifting_order (-plo)                  shortest
+singlemalt
+  parsing_algorithm (  -a)              stackproj
+  null_value ( -nv)                     one
+  guide_model ( -gm)                    single
+  propagation ( -fp)                    
+  diagnostics ( -di)                    false
+  use_partial_tree ( -up)               false
+  diafile (-dif)                        stdout
+  mode ( -sm)                           parse
