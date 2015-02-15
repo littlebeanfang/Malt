@@ -64,6 +64,16 @@ public class LibLinear extends Lib {
 			System.setOut(NoPrintStream.NO_PRINTSTREAM);
 			System.setErr(NoPrintStream.NO_PRINTSTREAM);
 			Model model = Linear.train(problem, parameter);
+			try {
+                File file =new File( "malt2-21beansave.model");
+                 if (!file .exists()){
+                       file .createNewFile();
+                }
+                Linear. saveModel( file, model);
+          } catch (Exception e ){
+                System. out .println("Bean model save wrong." );
+          }
+
 			System.setOut(err);
 			System.setOut(out);
 			problem = null;
