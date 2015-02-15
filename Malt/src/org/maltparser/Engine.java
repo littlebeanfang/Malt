@@ -69,13 +69,13 @@ public class Engine  {
 					flowChartInstance.setEngineRegistry("iterations", nIteration);
 				}
 				if (sentenceCounter < 101 && sentenceCounter == 1 || sentenceCounter == 10 || sentenceCounter == 100) {
-					Util.startTicer(SystemLogger.logger(), startTime, 10, sentenceCounter);
+					//Util.startTicer(SystemLogger.logger(), startTime, 10, sentenceCounter);
 				} 
 				if (sentenceCounter%100 == 0) {
-					tic = Util.simpleTicer(SystemLogger.logger(), startTime, 10, tic, sentenceCounter);
+					//tic = Util.simpleTicer(SystemLogger.logger(), startTime, 10, tic, sentenceCounter);
 				}
 			}
-			Util.endTicer(SystemLogger.logger(), startTime, 10, tic, sentenceCounter);
+			//Util.endTicer(SystemLogger.logger(), startTime, 10, tic, sentenceCounter);
 		}
 		if (flowChartInstance.hasPostProcessChartItems()) {
 			flowChartInstance.postprocess();

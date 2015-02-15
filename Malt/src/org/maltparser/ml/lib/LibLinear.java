@@ -83,7 +83,7 @@ public class LibLinear extends Lib {
 			nr_feature = model.getNrFeature();
 			boolean saveInstanceFiles = ((Boolean)getConfiguration().getOptionValue("lib", "save_instance_files")).booleanValue();
 			if (!saveInstanceFiles) {
-				getFile(".ins").delete();
+				//getFile(".ins").delete();
 			}
 		} catch (OutOfMemoryError e) {
 			throw new LibException("Out of memory. Please increase the Java heap size (-Xmx<size>). ", e);
@@ -274,9 +274,9 @@ public class LibLinear extends Lib {
 	        }
 	        boolean saveInstanceFiles = ((Boolean)getConfiguration().getOptionValue("lib", "save_instance_files")).booleanValue();
 	        if (!saveInstanceFiles) {
-				getFile(".ins").delete();
-				getFile(".mod").delete();
-				getFile(".ins.tmp").delete();
+//				getFile(".ins").delete();
+//				getFile(".mod").delete();
+//				getFile(".ins.tmp").delete();
 	        }
 	        if (config.isLoggerInfoEnabled()) {
 	        	config.logInfoMessage('\n');
