@@ -238,7 +238,7 @@ public class Liblinear implements LearningMethod {
 				System.setOut(err);
 				System.setOut(out);
 				if (!saveInstanceFiles) {
-					getFile(".ins").delete();
+					//getFile(".ins").delete();
 				}
 			} catch (OutOfMemoryError e) {
 				throw new LiblinearException("Out of memory. Please increase the Java heap size (-Xmx<size>). ", e);
@@ -305,8 +305,8 @@ public class Liblinear implements LearningMethod {
 	        in.close();
 	        err.close();
 	        if (!saveInstanceFiles) {
-				getFile(".ins").delete();
-				getFile(".ins.tmp").delete();
+				//getFile(".ins").delete();
+				//getFile(".ins.tmp").delete();
 	        }
 	        if (config.isLoggerInfoEnabled()) {
 	        	config.logInfoMessage('\n');

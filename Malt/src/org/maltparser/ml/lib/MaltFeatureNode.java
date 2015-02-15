@@ -80,11 +80,14 @@ public class MaltFeatureNode implements Comparable<MaltFeatureNode> {
 
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
+		/*Bean
 		sb.append("MaltFeatureNode [index=");
 		sb.append(index);
 		sb.append(", value=");
 		sb.append(value);
 		sb.append("]");
+		*/
+		sb.append(index+":"+value);
 		return sb.toString();
 	}
 }

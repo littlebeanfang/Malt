@@ -285,6 +285,7 @@ public class DependencyGraph extends Sentence implements DependencyStructure {
 	public void linkAllTreesToRoot() throws MaltChainedException {
 		for (int i : terminalNodes.keySet()) {
 			if (!terminalNodes.get(i).hasHead()) {
+				System.out.println("bean:linkAllTreesToRoot:"+terminalNodes);
 				addDependencyEdge(root,terminalNodes.get(i));
 			}
 		}

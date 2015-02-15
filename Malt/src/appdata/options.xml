@@ -150,7 +150,7 @@ many single malt configurations. ]]></desc>
 			<legalvalue name="rootnode">Distinguish between no node and root node</legalvalue>
 			<legalvalue name="novalue">Distinguish between no node and root node, and no value for output column</legalvalue>
 		</option>
-		<option type="bool" name="diagnostics" flag="di" default="false" usage="both">
+		<option type="bool" name="diagnostics" flag="di" default="true" usage="both">
 			<desc><![CDATA[ If <i>true</i> ,then diagnostics is written to standard out or the file specified by option diafile. By default this option is false.  ]]></desc>
 			<shortdesc>diagnostics</shortdesc>
 		</option>
@@ -350,7 +350,7 @@ otherwise all tokens in Left must be inspected before the next token is shifted.
 			<desc><![CDATA[ Path to <code>train</code> or <code>svm-train</code> executable file of the liblinear or the libsvm package. ]]></desc>
 			<shortdesc>Path to <code>train</code> or <code>svm-train</code></shortdesc>
 		</option>
-		<option type="bool" name="save_instance_files" flag="li" default="false" usage="save">
+		<option type="bool" name="save_instance_files" flag="li" default="true" usage="save">
 			<desc><![CDATA[ If <b>save_instance_files=true</b>, training instance files are saved in the configuration, otherwise
            these files are deleted. The training instance files are not used during parsing. ]]></desc>
 			<shortdesc>If <b>save_instance_files=true</b>, instance files are saved in the configuration.</shortdesc>

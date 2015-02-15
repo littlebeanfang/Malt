@@ -1,7 +1,7 @@
 CONFIGURATION
 Configuration name:   test
 Configuration type:   singlemalt
-Created:              Sat Jan 31 20:38:39 CST 2015
+Created:              Sun Feb 15 09:52:28 CST 2015
 
 SYSTEM
 Operating system architecture: amd64
@@ -78,7 +78,50 @@ singlemalt
   null_value ( -nv)                     one
   guide_model ( -gm)                    single
   propagation ( -fp)                    
-  diagnostics ( -di)                    false
+  diagnostics ( -di)                    true
   use_partial_tree ( -up)               false
   diafile (-dif)                        stdout
   mode ( -sm)                           parse
+
+DEPENDENCIES
+--guide-features (  -F)                 eng-liblinear.xml
+
+FEATURE MODEL
+MAIN
+InputColumn(FORM,Lookahead[0])
+InputColumn(FORM,Lookahead[1])
+InputColumn(FORM,Stack[0])
+InputColumn(FORM,Stack[1])
+InputColumn(FORM,Stack[2])
+InputColumn(FORM,ldep(Stack[0]))
+InputColumn(FORM,rdep(Stack[1]))
+InputColumn(POSTAG,Input[0])
+InputColumn(POSTAG,Lookahead[0])
+InputColumn(POSTAG,Lookahead[1])
+InputColumn(POSTAG,Lookahead[2])
+InputColumn(POSTAG,Stack[0])
+InputColumn(POSTAG,Stack[1])
+InputColumn(POSTAG,Stack[2])
+InputColumn(POSTAG,Stack[3])
+InputColumn(POSTAG,ldep(Stack[0]))
+InputColumn(POSTAG,ldep(Stack[1]))
+InputColumn(POSTAG,rdep(Stack[0]))
+InputColumn(POSTAG,rdep(Stack[1]))
+Merge(InputColumn(FORM,Stack[0]),InputColumn(FORM,Lookahead[0]))
+Merge(InputColumn(POSTAG,Lookahead[0]),InputColumn(FORM,Lookahead[0]))
+Merge(InputColumn(POSTAG,Stack[0]),InputColumn(FORM,Stack[0]))
+Merge(InputColumn(POSTAG,Stack[0]),InputColumn(POSTAG,Stack[1]))
+Merge(InputColumn(POSTAG,Stack[1]),InputColumn(FORM,Stack[1]))
+Merge(OutputColumn(DEPREL,rdep(Stack[1])),OutputColumn(DEPREL,ldep(Stack[0])))
+Merge3(InputColumn(POSTAG,Lookahead[0]),InputColumn(POSTAG,Lookahead[1]),InputColumn(POSTAG,Lookahead[2]))
+Merge3(InputColumn(POSTAG,Lookahead[1]),InputColumn(POSTAG,Lookahead[2]),InputColumn(POSTAG,Lookahead[3]))
+Merge3(InputColumn(POSTAG,Stack[0]),InputColumn(POSTAG,Lookahead[0]),InputColumn(POSTAG,Input[0]))
+Merge3(InputColumn(POSTAG,Stack[0]),InputColumn(POSTAG,Lookahead[0]),InputColumn(POSTAG,Lookahead[1]))
+Merge3(InputColumn(POSTAG,Stack[0]),InputColumn(POSTAG,Stack[1]),InputColumn(POSTAG,Lookahead[0]))
+Merge3(InputColumn(POSTAG,Stack[0]),InputColumn(POSTAG,Stack[1]),InputColumn(POSTAG,Stack[2]))
+Merge3(InputColumn(POSTAG,Stack[1]),OutputColumn(DEPREL,ldep(Stack[1])),OutputColumn(DEPREL,rdep(Stack[1])))
+Merge3(InputColumn(POSTAG,rdep(Stack[1])),InputColumn(POSTAG,ldep(Stack[1])),InputColumn(POSTAG,Stack[1]))
+OutputColumn(DEPREL,ldep(Stack[0]))
+OutputColumn(DEPREL,rdep(Stack[1]))
+
+liblinear INTERFACE

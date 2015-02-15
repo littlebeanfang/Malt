@@ -90,6 +90,18 @@ public class FeatureList  {
 	public int size() {
 		return list.size();
 	}
+	@Override
+	public String toString() {
+		// TODO Bean
+		StringBuilder sb=new StringBuilder();
+		int len=list.size();
+		String columnseperator=" ";
+		for(int i=0;i<len;i++){
+			sb.append(columnseperator+list.get(i));
+		}
+		
+		return sb.toString();
+	}
 	
 	public MaltFeatureNode[] toArray() {
 		final MaltFeatureNode[] nodes = new MaltFeatureNode[list.size()];

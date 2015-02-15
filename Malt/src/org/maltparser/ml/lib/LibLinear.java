@@ -2,7 +2,9 @@ package org.maltparser.ml.lib;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,7 +30,8 @@ import org.maltparser.ml.lib.LibException;
 import org.maltparser.parser.guide.instance.InstanceModel;
 
 public class LibLinear extends Lib {
-	
+	private static FileWriter instWriter=null;
+	private static String instfilename="beaninstfile.ins";
 	public LibLinear(InstanceModel owner, Integer learnerMode) throws MaltChainedException {
 		super(owner, learnerMode, "liblinear");
 		if (learnerMode == CLASSIFY) {
@@ -317,6 +320,21 @@ public class LibLinear extends Lib {
 				String line = fp.readLine();
 				if(line == null) break;
 				int y = binariesInstance(line, featureList);
+				//Bean
+				if(instWriter==null){
+					File out=new File(instfilename);
+					if(!out.exists()){
+						try {
+							out.createNewFile();
+							instWriter=new FileWriter(out);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				instWriter.write("line"+(i+1)+":"+y+featureList+"\n");
+				instWriter.flush();
 				if (y == -1) {
 					continue;
 				}

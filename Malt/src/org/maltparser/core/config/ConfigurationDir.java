@@ -508,7 +508,8 @@ public class ConfigurationDir  {
 		}
 		File infoFile = new File(configDirectory.getPath()+File.separator+getName()+"_"+getType()+".info");
 		if (infoFile.exists()) {
-			deleteConfigDirectory(configDirectory);
+			System.out.println("get it");
+			//deleteConfigDirectory(configDirectory);
 		} else {
 			throw new ConfigurationException("There exists a directory that is not a MaltParser configuration directory. ");
 		}

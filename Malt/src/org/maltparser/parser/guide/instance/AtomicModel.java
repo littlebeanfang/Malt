@@ -176,7 +176,7 @@ public class AtomicModel implements InstanceModel {
 			method.train();
 			method.terminate();
 		} catch (NullPointerException e) {	
-			throw new GuideException("The learner cannot be found. ", e);
+			throw new GuideException("The learner cannot be found1. ", e);
 		}
 		
 
